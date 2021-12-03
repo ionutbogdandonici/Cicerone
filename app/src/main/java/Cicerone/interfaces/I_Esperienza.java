@@ -1,4 +1,4 @@
-package Cicerone.interfacce;
+package Cicerone.interfaces;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

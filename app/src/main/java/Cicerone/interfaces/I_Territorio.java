@@ -1,4 +1,4 @@
-package Cicerone.interfacce;
+package Cicerone.interfaces;
 
 /**
  * Interfaccia per rappresentare un territorio

@@ -1,8 +1,8 @@
-package Cicerone.classi;
+package Cicerone.classes;
 
-import Cicerone.interfacce.I_Esperienza;
-import Cicerone.interfacce.I_Percorso;
-import Cicerone.interfacce.I_Tag;
+import Cicerone.interfaces.I_Esperienza;
+import Cicerone.interfaces.I_Percorso;
+import Cicerone.interfaces.I_Tag;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package Cicerone.interfacce;
+package Cicerone.interfaces;
 
 import java.util.ArrayList;
 
