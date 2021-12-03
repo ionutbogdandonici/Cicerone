@@ -1,5 +1,6 @@
 package Cicerone.interfacce;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -66,6 +67,26 @@ public interface I_Esperienza {
     boolean setPercorso(I_Percorso percorso);
 
     /**
+     * Ritorna tutti gli tag attribuiti a questa esperienza
+     *
+     * @return lista tag
+     */
+    ArrayList<I_Tag> getTags();
+
+    /**
+     * Aggiunge un nuovo tag all'esperienza
+     * @param tag da aggiungere
+     */
+    void addTag(I_Tag tag);
+
+    /**
+     * Rimuove un tag da questa esperienza
+     *
+     * @param tag da rimuovere
+     * @return <code>true</code> se il tag &egrave; stato rimosso <code>false</code> altrimenti
+     */
+    boolean removeTag(I_Tag tag);
+    /**
      * Ritorna il costo dell'esperienza
      *
      * @return costo
@@ -127,6 +148,7 @@ public interface I_Esperienza {
 
     /**
      * Ritorna l'ultimo giorno in cui è possibile effettuare delle prenotazioni
+     *
      * @return scadenza prenotazioni
      */
     Date getScadenzaPrenotazioni();
