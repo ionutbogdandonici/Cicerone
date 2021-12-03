@@ -3,7 +3,7 @@ package Cicerone.interfacce;
 import java.util.ArrayList;
 
 /**
- *  Interfaccia che rappresenta un percorso, esso &egrave; caratterizzato da un insieme di Tappe
+ *  Interfaccia che rappresenta un percorso, esso &egrave; caratterizzato da un insieme di Tappe.
  */
 public interface I_Percorso{
 
