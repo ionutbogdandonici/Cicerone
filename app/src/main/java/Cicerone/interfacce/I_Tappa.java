@@ -1,4 +1,4 @@
-package Cicerone;
+package Cicerone.interfacce;
 
 /**
  *  Interfaccia che rappresenta una tappa, essa è caratterizzata da un nome...
