@@ -10,4 +10,5 @@ public interface I_Percorso{
      * @return
      */
     String getName();
+    int getId();
 }
