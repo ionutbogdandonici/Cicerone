@@ -1,7 +1,7 @@
 package Cicerone.interfacce;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Interfaccia che rappresenta una esperienza
@@ -13,14 +13,14 @@ public interface I_Esperienza {
      *
      * @return data esperienza
      */
-    Date getDataEsperienza();
+    LocalDate getDataEsperienza();
 
     /**
      * Imposta o aggiorna la data di una determinata esperienza
      *
      * @param dataEsperienza nuova data
      */
-    void setDataEsperienza(Date dataEsperienza);
+    void setDataEsperienza(LocalDate dataEsperienza);
 
     /**
      * Restituisce il nome di un data esperienza
@@ -62,9 +62,8 @@ public interface I_Esperienza {
      * Una esperienza senza il percorso non esiste
      *
      * @param percorso da assegnare all'esperienza
-     * @return <code>true</code> se il percorso &egrave; stato inserito con successo, <code>false</code> altrimenti
      */
-    boolean setPercorso(I_Percorso percorso);
+    void setPercorso(I_Percorso percorso);
 
     /**
      * Ritorna tutti gli tag attribuiti a questa esperienza
@@ -138,6 +137,12 @@ public interface I_Esperienza {
     int getPostiRiservati();
 
     /**
+     * Incrementa il numero di posti riservati
+     * @return numero attuale di posti riservati
+     */
+    int incrementaPostiRiservati();
+
+    /**
      * Ritorna il numero di posti attualmente prenotati ma non ancora pagati
      * Alla scadenza di ogni timeout di ogni invito il numero diminuisce
      * Questo aumenta invece, quando un Utente invia un invito ad un amico
@@ -147,19 +152,23 @@ public interface I_Esperienza {
     int getPostiRiservatiMaNonConfermati();
 
     /**
+     * Incrementa il numero di posti riservati ma non confermati
+     * @return numero attuale di posti riservati ma non confermati
+     */
+    int incrementaPostiRiservatiMaNonConfermati();
+    /**
      * Ritorna l'ultimo giorno in cui è possibile effettuare delle prenotazioni
      *
      * @return scadenza prenotazioni
      */
-    Date getScadenzaPrenotazioni();
+    LocalDate getScadenzaPrenotazioni();
 
     /**
      * Imposto o aggiorna la data di scadenza delle prenotazioni
      *
      * @param scadenzaPrenotazioni nuova data di scadenza
-     * @return <code>true</code> se la data è stata aggiornata correttamente, <code>false</code> altrimenti
      */
-    boolean setScadenzaPrenotazioni(Date scadenzaPrenotazioni);
+    void setScadenzaPrenotazioni(LocalDate scadenzaPrenotazioni);
 
     /**
      * Ritorna il numero di giorni a disposizione dell'invitante ad accettare l'invito
@@ -173,7 +182,6 @@ public interface I_Esperienza {
      * Questo non può essere inferiore a 2
      *
      * @param giorniRiservatezzaPosti numero di giorni nuovo
-     * @return giorni riservatezza
      */
-    boolean setGiorniRiservatezzaPosti(int giorniRiservatezzaPosti);
+    void setGiorniRiservatezzaPosti(int giorniRiservatezzaPosti);
 }
