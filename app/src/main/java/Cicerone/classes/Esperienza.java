@@ -18,7 +18,7 @@ public class Esperienza implements I_Esperienza {
     private int postiMax;
     private int postiMin;
     private int postiRiservati;
-    private int postiRiservatiMaNonConfermati;
+    private int postiInSospeso;
     private LocalDate scadenzaPrenotazioni;
     private int giorniRiservatezzaPosti;
 
@@ -58,7 +58,7 @@ public class Esperienza implements I_Esperienza {
         this.postiMax = postiMax;
         this.postiMin = postiMin;
         this.postiRiservati = 0;
-        this.postiRiservatiMaNonConfermati = 0;
+        this.postiInSospeso = 0;
         this.scadenzaPrenotazioni = scadenzaPrenotazioni;
         this.giorniRiservatezzaPosti = giorniRiservatezzaPosti;
     }
@@ -179,14 +179,14 @@ public class Esperienza implements I_Esperienza {
     }
 
     @Override
-    public int getPostiRiservatiMaNonConfermati() {
-        return postiRiservatiMaNonConfermati;
+    public int getPostiInSospeso() {
+        return postiInSospeso;
     }
 
     @Override
     public int incrementaPostiRiservatiMaNonConfermati() {
-        postiRiservatiMaNonConfermati++;
-        return postiRiservatiMaNonConfermati;
+        postiInSospeso++;
+        return postiInSospeso;
     }
 
     @Override

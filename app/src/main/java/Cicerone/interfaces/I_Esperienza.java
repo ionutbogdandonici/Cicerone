@@ -149,7 +149,7 @@ public interface I_Esperienza {
      *
      * @return posti prenotati ma non pagati
      */
-    int getPostiRiservatiMaNonConfermati();
+    int getPostiInSospeso();
 
     /**
      * Incrementa il numero di posti riservati ma non confermati
