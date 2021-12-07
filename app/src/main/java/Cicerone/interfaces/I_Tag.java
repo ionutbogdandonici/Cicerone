@@ -22,4 +22,12 @@ public interface I_Tag {
      */
     boolean addNome();
 
+    /**
+     * Rimuove un tag dall'insieme del database
+     * @param ID del tag da rimuovere
+     * @return <code>True</code> se il tag &egrave; stato rimosso con successo, <code>false</code> se il tag
+     * non &egrave; presente
+     */
+    boolean remove(int ID);
+
 }
