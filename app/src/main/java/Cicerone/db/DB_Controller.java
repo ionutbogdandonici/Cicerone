@@ -11,6 +11,12 @@ public class DB_Controller {
     private static final String password = "";
 
     public static void init(){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             System.out.println("Connected!");
         } catch (SQLException e) {
