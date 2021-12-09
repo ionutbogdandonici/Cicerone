@@ -1,4 +1,8 @@
 package Cicerone.controllers;
 
-public class ControllerGestisciPercorso implements I_ControllerGestisciTerritorio{
+import Cicerone.db.DB_Controller;
+
+public class ControllerGestisciPercorso{
+
+
 }
