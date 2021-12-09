@@ -20,13 +20,15 @@ public class DB_Controller{
         }
     }
 
-
+    public static void insertQuery(String query) throws SQLException{
+        Statement statement = conn.createStatement();
+        statement.executeUpdate(query);
+    }
 
     // Ritorna true se ha almeno una riga, false se non
     public static boolean ifExistQuery(String query) throws SQLException {
         Statement statement = conn.createStatement();
         ResultSet set = statement.executeQuery(query);
-        System.out.println(set);
-        return true;
+        return set.getRow() == 0;
     }
 }
