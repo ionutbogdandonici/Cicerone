@@ -11,7 +11,6 @@ public class App {
         String query = "SELECT * FROM tag";
         DB_Controller.init();
         ControllerGestisciTerritorio co = new ControllerGestisciTerritorio();
-        System.out.println(co.insertInDB("Bari", "Puglia"));
-        //DB_Controller.query(query);
+        co.gui();
     }
 }

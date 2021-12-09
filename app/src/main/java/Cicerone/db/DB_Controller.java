@@ -12,7 +12,7 @@ public class DB_Controller{
 
     public static void init(){
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
-            conn =  DriverManager.getConnection(url, username, password);
+            conn = connection;
             System.out.println("Connected!");
 
         } catch (SQLException e) {
@@ -25,10 +25,20 @@ public class DB_Controller{
         statement.executeUpdate(query);
     }
 
-    // Ritorna true se ha almeno una riga, false se non
-    public static boolean ifExistQuery(String query) throws SQLException {
-        Statement statement = conn.createStatement();
-        ResultSet set = statement.executeQuery(query);
-        return set.getRow() == 0;
+    public static int getNumberRows(String query){
+
+        try{
+            Statement statement = conn.createStatement();
+            ResultSet resultset = statement.executeQuery(query);
+            if(resultset.last()){
+                return resultset.getRow();
+            } else {
+                return 0; //just cus I like to always do some kinda else statement.
+            }
+        } catch (Exception e){
+            System.out.println("Error getting row count");
+            e.printStackTrace();
+        }
+        return 0;
     }
 }

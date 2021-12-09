@@ -12,4 +12,6 @@ public interface I_ControllerGestisciTerritorio {
      * nel DB, <code>false</code> altrimenti
      */
     boolean insertInDB(String nome, String regione) throws SQLException;
+
+    void gui() throws SQLException;
 }
