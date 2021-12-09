@@ -17,4 +17,8 @@ public class DB_Controller {
             throw new IllegalStateException("Not connected", e);
         }
     }
+
+    public static boolean query(String query){
+        return false;
+    }
 }
