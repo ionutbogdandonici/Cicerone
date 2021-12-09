@@ -17,7 +17,7 @@ public interface I_Tappa {
      * Ritorna il nome della tappa
      * @return nome
      */
-    String getName();
+    String getNome();
 
     /**
      * Inserisce il nome per la tappa
