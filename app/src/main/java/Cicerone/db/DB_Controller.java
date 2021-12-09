@@ -12,7 +12,7 @@ public class DB_Controller{
 
     public static void init(){
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
-            conn = connection;
+            conn =  DriverManager.getConnection(url, username, password);
             System.out.println("Connected!");
 
         } catch (SQLException e) {
