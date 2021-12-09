@@ -8,6 +8,6 @@ public class App {
 
     public static void main(String[] args) throws SQLException {
         String query = "SELECT * FROM tag";
-        DB_Controller.query(query);
+        //DB_Controller.query(query);
     }
 }
