@@ -25,8 +25,12 @@ public class DB_Controller{
         statement.executeUpdate(query);
     }
 
-    public static int getNumberRows(String query){
+    public static ResultSet selectAllFromTable(String table) throws SQLException {
+        PreparedStatement statement = conn.prepareStatement("SELECT * FROM "+table);
+        return statement.executeQuery();
+    }
 
+    public static int getNumberRows(String query){
         try{
             Statement statement = conn.createStatement();
             ResultSet resultset = statement.executeQuery(query);
@@ -40,5 +44,6 @@ public class DB_Controller{
             e.printStackTrace();
         }
         return 0;
+
     }
 }

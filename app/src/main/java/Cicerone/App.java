@@ -11,6 +11,7 @@ public class App {
         String query = "SELECT * FROM tag";
         DB_Controller.init();
         ControllerGestisciTerritorio co = new ControllerGestisciTerritorio();
-        co.gui();
+        //co.gui();
+        co.getFetchedData();
     }
 }
