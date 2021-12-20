@@ -12,6 +12,11 @@ public class App {
         DB_Controller.init();
         ControllerGestisciTerritorio co = new ControllerGestisciTerritorio();
         //co.gui();
-        co.getFetchedData();
+        co.getAllData();
+        System.out.println(co.toString());
+        co.insertInDB("Ancona","Marche");
+        co.insertInDB("Ancona","Marche");
+        co.getAllData();
+        System.out.println(co.toString());
     }
 }

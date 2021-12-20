@@ -3,15 +3,14 @@ package Cicerone.controllers;
 import Cicerone.classes.Territorio;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Set;
 
 public interface I_ControllerGestisciTerritorio {
 
     /**
      * Metodo che permette l'inserimento di un territorio nel DB
-     * @param nome del territorio
+     *
+     * @param nome    del territorio
      * @param regione del territorio
      * @return <code>true</code> se il territorio &egrave; stato inserito correttamente
      * nel DB, <code>false</code> altrimenti
@@ -24,11 +23,11 @@ public interface I_ControllerGestisciTerritorio {
      * @return dati tabella
      * @throws SQLException problemi di query
      */
-    ArrayList<Territorio> getFetchedData() throws SQLException;
+    Set<Territorio> getAllData() throws SQLException;
 
-    ArrayList<Territorio> getById(int id);
+    Territorio getById(String id);
 
-    ArrayList<Territorio> getByName(String nome);
+    Territorio getByName(String nome);
 
     void gui() throws SQLException;
 }
