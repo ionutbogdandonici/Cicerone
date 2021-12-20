@@ -17,6 +17,7 @@ public class App {
         co.insertInDB("Ancona","Marche");
         co.insertInDB("Ancona","Marche");
         co.getAllData();
+        System.out.println("By ID: "+ co.getById("15"));
         System.out.println(co.toString());
     }
 }

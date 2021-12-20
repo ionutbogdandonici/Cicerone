@@ -23,7 +23,7 @@ public class ControllerGestisciTerritorio implements I_ControllerGestisciTerrito
     }
 
     @Override
-    public Set<Territorio> getAllData() throws SQLException {
+    public void getAllData() throws SQLException {
         ResultSet resultSet = DB_Controller.selectAllFromTable("territorio");
         while (resultSet.next()) {
             territori.add(new Territorio(
@@ -31,22 +31,23 @@ public class ControllerGestisciTerritorio implements I_ControllerGestisciTerrito
                     resultSet.getString("Nome"),
                     resultSet.getString("ID_REGIONE")));
         }
-        return territori;
     }
 
     @Override
-    public Territorio getById(String id) {
-        for (Territorio territorio : territori){
-            if(territorio.getID().equals(id))
+    public Territorio getById(String id) throws SQLException {
+        getAllData();
+        for (Territorio territorio : territori) {
+            if (territorio.getID().equals(id))
                 return territorio;
         }
         return null;
     }
 
     @Override
-    public Territorio getByName(String nome) {
-        for (Territorio territorio : territori){
-            if(territorio.getNome().equals(nome))
+    public Territorio getByName(String nome) throws SQLException {
+        getAllData();
+        for (Territorio territorio : territori) {
+            if (territorio.getNome().equals(nome))
                 return territorio;
         }
         return null;
