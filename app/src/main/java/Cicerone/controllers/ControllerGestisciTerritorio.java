@@ -23,8 +23,7 @@ public class ControllerGestisciTerritorio implements I_ControllerGestisciTerrito
         ResultSet resultSet = DB_Controller.selectAllFromTable("territorio");
         ArrayList<String> arrayList = new ArrayList<>();
         while (resultSet.next()){
-            arrayList.add(resultSet.getString(2));
-            arrayList.add(resultSet.getString(3));
+            arrayList.add(resultSet.getString("Nome"));
             fetchedData.put(resultSet.getInt(1), arrayList);
         }
 

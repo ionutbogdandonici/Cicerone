@@ -1,5 +1,7 @@
 package Cicerone.controllers;
 
+import Cicerone.classes.Territorio;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,11 +18,17 @@ public interface I_ControllerGestisciTerritorio {
      */
     boolean insertInDB(String nome, String regione) throws SQLException;
 
-    HashMap<Integer,ArrayList<String>> getFetchedData() throws SQLException;
+    /**
+     * Ritorna i dati all'interno della tabella territorio
+     *
+     * @return dati tabella
+     * @throws SQLException problemi di query
+     */
+    ArrayList<Territorio> getFetchedData() throws SQLException;
 
-    HashMap<Integer, ArrayList<String>> getById(int id);
+    ArrayList<Territorio> getById(int id);
 
-    HashMap<Integer, ArrayList<String>> getByName(String nome);
+    ArrayList<Territorio> getByName(String nome);
 
     void gui() throws SQLException;
 }
