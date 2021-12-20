@@ -14,7 +14,6 @@ public class Area implements I_Area {
         this.ID_Territorio = ID_Territorio;
     }
 
-
     @Override
     public String getID() {
         return this.ID_Area;
