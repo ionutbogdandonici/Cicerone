@@ -1,5 +1,6 @@
 package Cicerone.controllers;
 
+import Cicerone.classes.Territorio;
 import Cicerone.db.DB_Controller;
 
 import java.sql.ResultSet;
@@ -7,7 +8,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class ControllerGestisciTerritorio implements I_ControllerGestisciTerritorio{
-    Map<Integer, ArrayList<String>> fetchedData = new HashMap<>();
+
     @Override
     public boolean insertInDB(String nome, String regione) throws SQLException {
        if(checkDB(nome,regione)){
@@ -19,27 +20,17 @@ public class ControllerGestisciTerritorio implements I_ControllerGestisciTerrito
     }
 
     @Override
-    public HashMap<Integer, ArrayList<String>> getFetchedData() throws SQLException {
-        ResultSet resultSet = DB_Controller.selectAllFromTable("territorio");
-        ArrayList<String> arrayList = new ArrayList<>();
-        while (resultSet.next()){
-            arrayList.add(resultSet.getString("Nome"));
-            fetchedData.put(resultSet.getInt(1), arrayList);
-        }
-
-        for (Map.Entry<Integer, ArrayList<String>> entry : fetchedData.entrySet()){
-            System.out.println(entry.getKey() + entry.getValue().toString());
-        }
+    public ArrayList<Territorio> getFetchedData() throws SQLException {
         return null;
     }
 
     @Override
-    public HashMap<Integer, ArrayList<String>> getById(int id) {
+    public ArrayList<Territorio> getById(int id) {
         return null;
     }
 
     @Override
-    public HashMap<Integer, ArrayList<String>> getByName(String nome) {
+    public ArrayList<Territorio> getByName(String nome) {
         return null;
     }
 

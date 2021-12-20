@@ -5,12 +5,19 @@ package Cicerone.interfaces;
  */
 public interface I_Territorio {
 
+    /**
+     * Ritorna l'ID del territorio
+     * @return ID
+     */
     String getID();
 
+    /**
+     *
+     * @param ID
+     * @return
+     */
     String getNome(int ID);
 
-    boolean setNome(String nome);
-
-    String getRegione(int ID);
+    String getIDRegione(int ID);
 
 }
