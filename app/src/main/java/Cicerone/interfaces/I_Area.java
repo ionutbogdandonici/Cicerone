@@ -5,13 +5,13 @@ package Cicerone.interfaces;
  */
 public interface I_Area {
     
-    int getID();
+    String getID();
 
-    String getToponimo(int ID_Area);
+    String getToponimo(String ID_Area);
 
     boolean addToponimo(String toponimo);
 
-    boolean setToponimo(int ID_Area, String newToponimo);
+    boolean setToponimo(String ID_Area, String newToponimo);
 
     int getTerritorio(String toponimo);
 }

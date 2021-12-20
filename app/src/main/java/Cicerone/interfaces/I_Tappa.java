@@ -11,7 +11,7 @@ public interface I_Tappa {
      * Restituisce l'id della tappa
      * @return id percorso
      */
-    int getId();
+    String getId();
 
     /**
      * Ritorna il nome della tappa
