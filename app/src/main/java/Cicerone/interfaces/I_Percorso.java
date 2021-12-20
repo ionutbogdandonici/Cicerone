@@ -11,7 +11,7 @@ public interface I_Percorso{
      * Restituisce l'id del percorso
      * @return id percorso
      */
-    int getId();
+    String getId();
 
     /**
      * Restituisce tutte le tappe attraversate dal percorso
