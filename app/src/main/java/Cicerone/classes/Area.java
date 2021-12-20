@@ -25,16 +25,6 @@ public class Area implements I_Area {
     }
 
     @Override
-    public boolean addToponimo(String toponimo) {
-        return false;
-    }
-
-    @Override
-    public boolean setToponimo(String ID_Area, String newToponimo) {
-        return false;
-    }
-
-    @Override
     public int getTerritorio(String toponimo) {
         return 0;
     }
