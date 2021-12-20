@@ -23,11 +23,11 @@ public interface I_ControllerGestisciTerritorio {
      * @return dati tabella
      * @throws SQLException problemi di query
      */
-    void getAllData() throws SQLException;
+    Set<Territorio> getAllData() throws SQLException;
 
     Territorio getById(String id) throws SQLException;
 
     Territorio getByName(String nome) throws SQLException;
 
-    void gui() throws SQLException;
+
 }

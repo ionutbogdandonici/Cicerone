@@ -29,5 +29,12 @@ public class Area implements I_Area {
         return 0;
     }
 
-
+    @Override
+    public String toString() {
+        return "Area{" +
+                "ID_Area='" + ID_Area + '\'' +
+                ", Toponimo='" + Toponimo + '\'' +
+                ", ID_Territorio='" + ID_Territorio + '\'' +
+                '}';
+    }
 }

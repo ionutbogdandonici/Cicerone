@@ -21,13 +21,15 @@ public class ControllerGestisciArea implements I_ControllerGestisciArea {
         //TODO CONTROLLO ERRORI
         if (checkDB(toponoimo, ID_Territorio)) {
             DB_Controller.insertQuery("INSERT INTO area (Toponimo, ID_TERRITORIO) VALUES ('" + toponoimo + "', '" + ID_Territorio + "')");
+            refreshData();
             return true;
+
         }
         return false;
     }
 
     @Override
-    public void getAllData() throws SQLException {
+    public void refreshData() throws SQLException {
         ResultSet resultSet = DB_Controller.selectAllFromTable("area");
         while (resultSet.next()) {
             aree.add(new Area(
@@ -64,5 +66,10 @@ public class ControllerGestisciArea implements I_ControllerGestisciArea {
         return DB_Controller.getNumberRows(query) == 0;
     }
 
-
+    @Override
+    public String toString() {
+        return "ControllerGestisciArea{" +
+                "aree=" + aree +
+                '}';
+    }
 }

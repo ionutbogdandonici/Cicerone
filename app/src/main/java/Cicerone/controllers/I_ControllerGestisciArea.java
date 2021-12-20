@@ -10,7 +10,7 @@ public interface I_ControllerGestisciArea {
 
     boolean insertInDB(String Toponoimo, String NomeTerritorio) throws SQLException;
 
-    void getAllData() throws SQLException;
+    void refreshData() throws SQLException;
 
     Area getById(String ID_Area) throws SQLException;
 
