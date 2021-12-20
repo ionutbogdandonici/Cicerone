@@ -35,8 +35,8 @@ public class Tappa implements I_Tappa {
     }
 
     @Override
-    public int getId() {
-        return 0;
+    public String getId() {
+        return null;
     }
 
     @Override
