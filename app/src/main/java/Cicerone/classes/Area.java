@@ -10,7 +10,7 @@ public class Area implements I_Area {
 
     public Area(String ID_Area, String toponimo, String ID_Territorio) {
         this.ID_Area = ID_Area;
-        Toponimo = toponimo;
+        this.Toponimo = toponimo;
         this.ID_Territorio = ID_Territorio;
     }
 
