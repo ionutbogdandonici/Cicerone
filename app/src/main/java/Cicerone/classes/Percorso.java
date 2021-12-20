@@ -9,14 +9,14 @@ import java.util.ArrayList;
 
 public class Percorso implements I_Percorso {
 
-    private final int ID_Percorso;
+    private final String ID_Percorso;
     private String Nome;
     private String Descrizione;
     private I_Territorio territorio;
     private ArrayList<I_Tappa> tappe;
     private ArrayList<I_Area> aree;
 
-    public Percorso(int ID_Percorso, String nome, String descrizione, I_Territorio territorio, ArrayList<I_Tappa> tappe, ArrayList<I_Area> aree) {
+    public Percorso(String ID_Percorso, String nome, String descrizione, I_Territorio territorio, ArrayList<I_Tappa> tappe, ArrayList<I_Area> aree) {
         if(nome==null ||  descrizione == null || territorio == null){
             throw new NullPointerException("Inserisci tutti i parametri");
         }
@@ -29,7 +29,7 @@ public class Percorso implements I_Percorso {
     }
 
     @Override
-    public int getId() {
+    public String getId() {
         return this.ID_Percorso;
     }
 
