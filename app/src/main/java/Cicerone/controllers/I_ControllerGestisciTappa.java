@@ -5,11 +5,12 @@ import Cicerone.interfaces.I_Area;
 import Cicerone.interfaces.I_Tappa;
 import Cicerone.interfaces.I_Territorio;
 
+import java.sql.SQLException;
 import java.util.Set;
 
 public interface I_ControllerGestisciTappa {
 
-    void insertInDb(String nome, String descrizione, String raggiunta, I_Area area);
+    boolean insertInDb(String nome, String descrizione, String raggiunta, String toponimo) throws SQLException;
 
     Tappa getTappaByName(String name);
 

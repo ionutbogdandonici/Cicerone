@@ -16,21 +16,21 @@ public class Tappa implements I_Tappa {
     /**
      * Costruttore di Tappa
      */
-    public Tappa( String nome,
+    public Tappa(
+                  String ID_TAPPA,
+                  String nome,
                   String descrizione,
                   String raggiunta,
-                  I_Area area,
-                  I_Territorio territorio
+                  String ID_AREA
     ){
         // Se uno o più parametri sono null
-        if ( nome == null || descrizione == null || raggiunta == null || area == null || territorio == null)
+        if ( nome == null || descrizione == null || raggiunta == null || area == null)
             throw new NullPointerException("Parametri null!");
 
         this.nome=nome;
         this.descrizione=descrizione;
         this.raggiunta=raggiunta;
         this.area=area;
-        this.territorio=territorio;
 
     }
 
