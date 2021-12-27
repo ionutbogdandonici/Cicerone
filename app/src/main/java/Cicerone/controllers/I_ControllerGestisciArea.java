@@ -20,5 +20,7 @@ public interface I_ControllerGestisciArea {
 
     Territorio getTerritorioByToponimo(String toponimo);
 
+    boolean removeAreaFromDB(String toponimo);
+
 
 }

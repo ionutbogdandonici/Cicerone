@@ -40,24 +40,16 @@ public class ControllerGestisciTappa implements I_ControllerGestisciTappa {
     }
 
     @Override
-    public String getRaggiunta(String nome) {
-        return null;
-    }
-
-    @Override
-    public String getDescrizione(String nome) {
-        return null;
-    }
-
-    @Override
     public Set<Tappa> getAllTappeByArea(I_Area area) {
         return null;
     }
 
     @Override
-    public void removeTappaFromDB(int ID) {
-
+    public boolean removeTappaFromDB(String nome) {
+        return false;
     }
+
+
 
     private void refreshData() throws SQLException {
         ResultSet resultSet = DB_Controller.selectAllFromTable("tappa");

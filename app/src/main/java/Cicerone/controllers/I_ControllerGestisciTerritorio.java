@@ -29,5 +29,5 @@ public interface I_ControllerGestisciTerritorio {
 
     Territorio getByName(String nome) throws SQLException;
 
-
+    boolean removeTerritorioFromDB(String nome);
 }

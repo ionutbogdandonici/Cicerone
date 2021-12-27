@@ -59,6 +59,11 @@ public class ControllerGestisciArea implements I_ControllerGestisciArea {
         return null;
     }
 
+    @Override
+    public boolean removeAreaFromDB(String toponimo) {
+        return false;
+    }
+
 
     private boolean checkDB(String toponimo, String ID_TERRITORIO) throws SQLException {
         String query = "SELECT ID_AREA, Toponimo, ID_TERRITORIO FROM area WHERE Toponimo =\"" + toponimo + "\" AND ID_TERRITORIO=\"" + ID_TERRITORIO + "\"";

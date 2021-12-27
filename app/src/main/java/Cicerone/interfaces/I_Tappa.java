@@ -61,16 +61,5 @@ public interface I_Tappa {
      */
     void setArea(I_Area area);
 
-    /**
-     * Ritorna il territorio della tappa
-     * @return territorio
-     */
-    I_Territorio getTerritorio();
-
-    /**
-     * Permette di inserire un territorio
-     * @param territorio
-     */
-    void setTerritorio(I_Territorio territorio);
 
 }

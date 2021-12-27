@@ -52,6 +52,10 @@ public class ControllerGestisciTerritorio implements I_ControllerGestisciTerrito
         return null;
     }
 
+    @Override
+    public boolean removeTerritorioFromDB(String nome) {
+        return false;
+    }
 
 
     @Override

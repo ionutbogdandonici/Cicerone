@@ -24,9 +24,8 @@ public class Tappa implements I_Tappa {
                   String ID_AREA
     ){
         // Se uno o più parametri sono null
-        if ( nome == null || descrizione == null || raggiunta == null || area == null)
+        if ( ID_TAPPA == null || nome == null || descrizione == null || raggiunta == null || area == null)
             throw new NullPointerException("Parametri null!");
-
         this.nome=nome;
         this.descrizione=descrizione;
         this.raggiunta=raggiunta;
@@ -49,7 +48,6 @@ public class Tappa implements I_Tappa {
         if (nome == null)
             throw new NullPointerException("Parametro null!");
         this.nome = nome;
-
     }
 
     @Override
@@ -91,16 +89,5 @@ public class Tappa implements I_Tappa {
 
     }
 
-    @Override
-    public I_Territorio getTerritorio() {
-        return territorio;
-    }
 
-    @Override
-    public void setTerritorio(I_Territorio territorio) {
-        if(territorio == null)
-            throw new NullPointerException("Parametro null!");
-        this.territorio = territorio;
-
-    }
 }
