@@ -14,6 +14,6 @@ public interface I_Territorio {
 
     String getNome();
 
-    String getIDRegione(int ID);
+    String getIDRegione();
 
 }

@@ -1,6 +1,7 @@
 package Cicerone;
 
 import Cicerone.controllers.ControllerGestisciArea;
+import Cicerone.controllers.ControllerGestisciTappa;
 import Cicerone.controllers.ControllerGestisciTerritorio;
 import Cicerone.db.DB_Controller;
 
@@ -16,5 +17,9 @@ public class App {
         con.insertInDB("Tolentino", "Macerata");
         con.insertInDB("Agosta", "Roma");
         System.out.println(con.toString());
+
+        ControllerGestisciTappa controllerGestisciTappa = new ControllerGestisciTappa();
+        controllerGestisciTappa.insertInDb("Centrale Macerata", "Passeggiata", "A piedi", "Macerata");
+        System.out.println(controllerGestisciTappa);
     }
 }

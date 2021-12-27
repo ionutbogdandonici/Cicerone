@@ -7,7 +7,7 @@ public interface I_Area {
 
     String getID();
 
-    String getToponimo(String ID_Area);
+    String getToponimo();
 
-    int getTerritorio(String toponimo);
+    String getTerritorio();
 }

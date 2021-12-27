@@ -46,6 +46,10 @@ public class ControllerGestisciArea implements I_ControllerGestisciArea {
 
     @Override
     public Area getByToponimo(String Toponimo) throws SQLException {
+        for (Area area : aree) {
+            if (area.getToponimo().equals(Toponimo))
+                return area;
+        }
         return null;
     }
 
@@ -58,12 +62,6 @@ public class ControllerGestisciArea implements I_ControllerGestisciArea {
     public Territorio getTerritorioByToponimo(String toponimo) {
         return null;
     }
-
-    @Override
-    public boolean removeAreaFromDB(String toponimo) {
-        return false;
-    }
-
 
     private boolean checkDB(String toponimo, String ID_TERRITORIO) throws SQLException {
         String query = "SELECT ID_AREA, Toponimo, ID_TERRITORIO FROM area WHERE Toponimo =\"" + toponimo + "\" AND ID_TERRITORIO=\"" + ID_TERRITORIO + "\"";

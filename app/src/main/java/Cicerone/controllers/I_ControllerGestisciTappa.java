@@ -19,5 +19,5 @@ public interface I_ControllerGestisciTappa {
 
     Set<Tappa> getAllTappeByArea(I_Area area);
 
-    boolean removeTappaFromDB(String nome);
+    boolean removeTappaFromDB(String nome) throws SQLException;
 }

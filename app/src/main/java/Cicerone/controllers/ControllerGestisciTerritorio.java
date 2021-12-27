@@ -6,7 +6,6 @@ import Cicerone.db.DB_Controller;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class ControllerGestisciTerritorio implements I_ControllerGestisciTerritorio {
 
@@ -51,12 +50,6 @@ public class ControllerGestisciTerritorio implements I_ControllerGestisciTerrito
         }
         return null;
     }
-
-    @Override
-    public boolean removeTerritorioFromDB(String nome) {
-        return false;
-    }
-
 
     @Override
     public String toString() {

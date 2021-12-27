@@ -28,9 +28,11 @@ public class Territorio implements I_Territorio {
     }
 
     @Override
-    public String getIDRegione(int ID) {
+    public String getIDRegione() {
         return id_Regione;
     }
+
+
 
     @Override
     public boolean equals(Object o) {

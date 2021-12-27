@@ -20,13 +20,13 @@ public class Area implements I_Area {
     }
 
     @Override
-    public String getToponimo(String ID_Area) {
-       return null;
+    public String getToponimo() {
+       return Toponimo;
     }
 
     @Override
-    public int getTerritorio(String toponimo) {
-        return 0;
+    public String getTerritorio() {
+        return ID_Territorio;
     }
 
     @Override
