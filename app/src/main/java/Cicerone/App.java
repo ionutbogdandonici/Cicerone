@@ -12,14 +12,8 @@ public class App {
     public static void main(String[] args) throws SQLException {
         DB_Controller.init();
         ControllerGestisciArea con = new ControllerGestisciArea();
-        con.insertInDB("Cingoli", "Macerata");
-        con.insertInDB("Cingoli", "Macerata");
-        con.insertInDB("Tolentino", "Macerata");
-        con.insertInDB("Agosta", "Roma");
-        System.out.println(con.toString());
+       ControllerGestisciArea controllerGestisciArea = new ControllerGestisciArea();
+       System.out.println(controllerGestisciArea.getByToponimo("Cingoli").getID());
 
-        ControllerGestisciTappa controllerGestisciTappa = new ControllerGestisciTappa();
-        controllerGestisciTappa.insertInDb("Centrale Macerata", "Passeggiata", "A piedi", "Macerata");
-        System.out.println(controllerGestisciTappa);
     }
 }

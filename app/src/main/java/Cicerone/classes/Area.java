@@ -21,7 +21,7 @@ public class Area implements I_Area {
 
     @Override
     public String getToponimo() {
-       return Toponimo;
+       return this.Toponimo;
     }
 
     @Override

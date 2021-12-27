@@ -23,7 +23,6 @@ public class ControllerGestisciArea implements I_ControllerGestisciArea {
             DB_Controller.insertQuery("INSERT INTO area (Toponimo, ID_TERRITORIO) VALUES ('" + toponoimo + "', '" + ID_Territorio + "')");
             refreshData();
             return true;
-
         }
         return false;
     }
@@ -46,6 +45,7 @@ public class ControllerGestisciArea implements I_ControllerGestisciArea {
 
     @Override
     public Area getByToponimo(String Toponimo) throws SQLException {
+        refreshData();
         for (Area area : aree) {
             if (area.getToponimo().equals(Toponimo))
                 return area;
@@ -68,6 +68,8 @@ public class ControllerGestisciArea implements I_ControllerGestisciArea {
         System.out.println(DB_Controller.getNumberRows(query));
         return DB_Controller.getNumberRows(query) == 0;
     }
+
+
 
     @Override
     public String toString() {
