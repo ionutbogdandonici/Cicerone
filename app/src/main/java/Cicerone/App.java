@@ -12,16 +12,15 @@ public class App {
     public static void main(String[] args) throws SQLException {
         DB_Controller.init();
         ControllerGestisciArea con = new ControllerGestisciArea();
-       /*con.insertInDB("Cingoli", "Macerata");
-        con.insertInDB("Cingoli", "Macerata");
-        con.insertInDB("Tolentino", "Macerata");
-        con.insertInDB("Agosta", "Roma");*/
+        con.insertInDB("Porto Recanati", "Macerata");
+        //con.insertInDB("Cingoli", "Macerata");
+        //con.insertInDB("Tolentino", "Macerata");
+        //con.insertInDB("Agosta", "Roma");*/
         //con.insertInDB("Treia", "Macerata");
         //con.insertInDB("Visso", "Macerata");
-        /*System.out.println(con.toString());
-*/
+        //System.out.println(con.toString());
         ControllerGestisciTappa controllerGestisciTappa = new ControllerGestisciTappa();
-    controllerGestisciTappa.insertInDb("Stazione", "Partenza", "A piedi", "Tolentino");
+        controllerGestisciTappa.insertInDb("Porto", "Imbarco", "Bus", "Porto Recanati");
 
 
 

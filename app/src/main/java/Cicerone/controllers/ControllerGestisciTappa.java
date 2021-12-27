@@ -23,7 +23,8 @@ public class ControllerGestisciTappa implements I_ControllerGestisciTappa {
     public boolean insertInDb(String nome, String descrizione, String raggiunta, String toponimo) throws SQLException {
         String ID_AREA = controllerGestisciArea.getByToponimo(toponimo).getID();
         if (checkDB(nome, ID_AREA)) {
-            DB_Controller.insertQuery("INSERT INTO tappa (Nome, Descrizione, Raggiunta, ID_AREA) VALUES ('" + nome + "', '" + descrizione + "','" + raggiunta + "','" + raggiunta + "','" + ID_AREA + "')");
+            String query = "INSERT INTO tappa (Nome, Descrizione, Raggiunta, ID_AREA) VALUES (\'" + nome + "\', \'" + descrizione + "\',\'" + raggiunta + "\',\'" + ID_AREA + "\')";
+            DB_Controller.insertQuery(query);
             refreshData();
             return true;
         }
@@ -80,7 +81,6 @@ public class ControllerGestisciTappa implements I_ControllerGestisciTappa {
 
     public boolean checkDB(String nome, String ID_AREA) throws SQLException {
         String query = "SELECT Nome, ID_AREA FROM tappa WHERE Nome=\"" + nome + "\" AND ID_AREA=\"" + ID_AREA + "\"";
-        System.out.println(DB_Controller.getNumberRows(query));
         return DB_Controller.getNumberRows(query) == 0;
     }
 }
