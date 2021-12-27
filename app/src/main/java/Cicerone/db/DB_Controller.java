@@ -44,6 +44,5 @@ public class DB_Controller{
             e.printStackTrace();
         }
         return 0;
-
     }
 }

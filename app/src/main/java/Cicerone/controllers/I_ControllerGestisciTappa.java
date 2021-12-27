@@ -5,17 +5,21 @@ import Cicerone.interfaces.I_Area;
 import Cicerone.interfaces.I_Tappa;
 import Cicerone.interfaces.I_Territorio;
 
+import java.util.Set;
+
 public interface I_ControllerGestisciTappa {
 
-    void createTappa(String nome, String descrizione, String raggiunta, I_Area area, I_Territorio territorio);
+    void insertInDb(String nome, String descrizione, String raggiunta, I_Area area);
 
-    void addTappaToDB(I_Tappa tappa);
+    Tappa getTappaByName(String name);
 
-    void getTappaFromDB(String name);
+    Tappa getTappaById(int ID);
 
-    void getTappaFromDB(int ID);
+    String getRaggiunta(String nome);
 
-    void updateTappaInDB();
+    String getDescrizione(String nome);
+
+    Set<Tappa> getAllTappeByArea(I_Area area);
 
     void removeTappaFromDB(int ID);
 }

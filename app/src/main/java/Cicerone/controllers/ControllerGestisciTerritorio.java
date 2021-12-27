@@ -6,10 +6,12 @@ import Cicerone.db.DB_Controller;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class ControllerGestisciTerritorio implements I_ControllerGestisciTerritorio {
 
     private Set<Territorio> territori = new HashSet<>();
+
 
 
     @Override
@@ -20,7 +22,6 @@ public class ControllerGestisciTerritorio implements I_ControllerGestisciTerrito
             return true;
         }
         return false;
-
     }
 
     @Override
@@ -37,10 +38,9 @@ public class ControllerGestisciTerritorio implements I_ControllerGestisciTerrito
                 return territorio;
         }
         return null;
-
-
-
     }
+
+
 
     @Override
     public Territorio getByName(String nome) throws SQLException {
@@ -51,6 +51,7 @@ public class ControllerGestisciTerritorio implements I_ControllerGestisciTerrito
         }
         return null;
     }
+
 
 
     @Override
@@ -73,6 +74,7 @@ public class ControllerGestisciTerritorio implements I_ControllerGestisciTerrito
         String query = "SELECT Nome, ID_REGIONE FROM territorio WHERE Nome=\"" + nome + "\" AND ID_REGIONE=\"" + regione + "\"";
         System.out.println(DB_Controller.getNumberRows(query));
         return DB_Controller.getNumberRows(query) == 0;
-
     }
+
+
 }
