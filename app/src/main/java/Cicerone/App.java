@@ -12,17 +12,16 @@ public class App {
     public static void main(String[] args) throws SQLException {
         DB_Controller.init();
         ControllerGestisciArea con = new ControllerGestisciArea();
-        con.insertInDB("Ancona", "Ancona");
-        //con.insertInDB("Cingoli", "Macerata");
-        //con.insertInDB("Tolentino", "Macerata");
-        //con.insertInDB("Agosta", "Roma");*/
-        //con.insertInDB("Treia", "Macerata");
-        //con.insertInDB("Visso", "Macerata");
-        //System.out.println(con.toString());
-        ControllerGestisciTappa controllerGestisciTappa = new ControllerGestisciTappa();
-        controllerGestisciTappa.insertInDb("Porto", "Imbarco", "Bus", "Porto Recanati");
-        controllerGestisciTappa.insertInDb("Porto", "Imbarco", "Bus", "Ancona");
-
+        // con.insertInDB("Ancona", "Ancona");
+        // con.insertInDB("Cingoli", "Macerata");
+        // con.insertInDB("Tolentino", "Macerata");
+        // con.insertInDB("Agosta", "Roma");*/
+        // con.insertInDB("Treia", "Macerata");
+        // con.insertInDB("Visso", "Macerata");
+        // System.out.println(con.toString());
+        // ControllerGestisciTappa controllerGestisciTappa = new ControllerGestisciTappa();
+        // controllerGestisciTappa.insertInDb("Porto", "Imbarco", "Bus", "Porto Recanati");
+        // controllerGestisciTappa.insertInDb("Porto", "Imbarco", "Bus", "Ancona");
 
 
     }

@@ -6,7 +6,6 @@ import Cicerone.interfaces.I_Territorio;
 
 public class Tappa implements I_Tappa {
 
-
     private String nome;
     private String ID_TAPPA;
     private String descrizione;

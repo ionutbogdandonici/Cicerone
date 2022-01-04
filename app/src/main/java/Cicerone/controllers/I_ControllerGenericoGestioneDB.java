@@ -9,6 +9,8 @@ public interface I_ControllerGenericoGestioneDB<E> {
      * Operazione che permette l'inserimento dei dati all'interno di un DB
      *
      * @param element parametri da inserire
+     *
+     *
      * @return <code>true</code> se l'operazione è andata a buon fine, <code>false</code> altrimenti
      */
     boolean insertDB(E element) throws SQLException;

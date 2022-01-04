@@ -11,7 +11,15 @@ public class ControllerGestisciPercorso implements I_ControllerGenericoGestioneD
 
     @Override
     public boolean insertDB(Percorso element) throws SQLException {
-        return false;
+        if (element == null)
+            throw new NullPointerException("Parametro null!");
+        if (!checkDB(element))
+            return false;
+
+        String query = "INSERT INTO percorso (Nome, Descrizione) VALUES('" + element.getName() + "','" + element.getDescrizione() + "')";
+        DB_Controller.insertQuery(query);
+        refreshData();
+        return true;
     }
 
     @Override

@@ -1,5 +1,6 @@
-package Tests;
+package Tests.controllers;
 
+import Cicerone.classes.Territorio;
 import org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
@@ -8,21 +9,22 @@ class ControllerGestisciTerritorioTest {
     @Test
     void insertInDB() {
 
+        Territorio daInserire = new Territorio("", "", "");
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getAllData() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getById() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getByName() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void testToString() {
     }
 }
