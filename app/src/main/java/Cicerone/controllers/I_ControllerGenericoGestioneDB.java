@@ -2,7 +2,7 @@ package Cicerone.controllers;
 
 import java.util.Set;
 
-public interface I_ControllerGenereicoGestioneDB<E> {
+public interface I_ControllerGenericoGestioneDB<E> {
 
     /**
      * Operazione che permette l'inserimento dei dati all'interno di un DB
