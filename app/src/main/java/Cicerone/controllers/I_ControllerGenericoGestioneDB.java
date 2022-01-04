@@ -29,9 +29,9 @@ public interface I_ControllerGenericoGestioneDB<E> {
     E getById(String id) throws SQLException;
 
     /**
-     *
-     * @param nome
-     * @return
+     * Ritorna un determinato elemento di una tabella in base al Nome
+     * @param nome dell'elemento interessato
+     * @return l'elemento interessato, altrimenti <code>null</code>
      * @throws SQLException
      */
     E getByName(String nome) throws SQLException;
