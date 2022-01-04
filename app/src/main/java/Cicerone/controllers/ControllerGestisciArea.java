@@ -9,18 +9,30 @@ import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ControllerGestisciArea implements I_ControllerGestisciArea {
+public class ControllerGestisciArea implements I_ControllerGenericoGestioneDB<Area> {
 
     private Territorio territorioArea;
     private Set<Area> aree = new HashSet<>();
     ControllerGestisciTerritorio controllerGestisciTerritorio = new ControllerGestisciTerritorio();
 
-    @Override
+    /**
     public boolean insertInDB(String toponoimo, String NomeTerritorio) throws SQLException {
         String ID_Territorio = controllerGestisciTerritorio.getByName(NomeTerritorio).getID();
         //TODO CONTROLLO ERRORI
         if (checkDB(toponoimo, ID_Territorio)) {
             DB_Controller.insertQuery("INSERT INTO area (Toponimo, ID_TERRITORIO) VALUES ('" + toponoimo + "', '" + ID_Territorio + "')");
+            refreshData();
+            return true;
+        }
+        return false;
+    }*/
+
+    @Override
+    public boolean insertDB(Area element) throws SQLException {
+        String ID_Territorio = controllerGestisciTerritorio.getByName(element.getTerritorio()).getID();
+        //TODO CONTROLLO ERRORI
+        if (checkDB(element)) {
+            DB_Controller.insertQuery("INSERT INTO area (Toponimo, ID_TERRITORIO) VALUES ('" + element.getToponimo() + "', '" + ID_Territorio + "')");
             refreshData();
             return true;
         }
@@ -39,34 +51,60 @@ public class ControllerGestisciArea implements I_ControllerGestisciArea {
     }
 
     @Override
-    public Area getById(String ID_Area) throws SQLException {
-        return null;
+    public boolean checkDB(Area element) {
+        String query = "SELECT ID_AREA, Toponimo, ID_TERRITORIO FROM area WHERE Toponimo =\"" + element.getToponimo() + "\" AND ID_TERRITORIO=\"" + element.getTerritorio()+ "\"";
+        System.out.println(DB_Controller.getNumberRows(query));
+        return DB_Controller.getNumberRows(query) == 0;
+    }
+
+   /** private boolean checkDB(String toponimo, String ID_TERRITORIO) throws SQLException {
+        String query = "SELECT ID_AREA, Toponimo, ID_TERRITORIO FROM area WHERE Toponimo =\"" + toponimo + "\" AND ID_TERRITORIO=\"" + ID_TERRITORIO + "\"";
+        System.out.println(DB_Controller.getNumberRows(query));
+        return DB_Controller.getNumberRows(query) == 0;
+    }*/
+
+    @Override
+    public Set<Area> getAllData() throws SQLException {
+        return this.aree;
     }
 
     @Override
-    public Area getByToponimo(String Toponimo) throws SQLException {
+    public Area getById(String ID_Area) throws SQLException {
         refreshData();
         for (Area area : aree) {
-            if (area.getToponimo().equals(Toponimo))
+            if (area.getID().equals(ID_Area))
                 return area;
         }
         return null;
     }
 
     @Override
+    public Area getByName(String nome) throws SQLException {
+        refreshData();
+        for (Area area : aree) {
+            if (area.getToponimo().equals(nome))
+                return area;
+        }
+        return null;
+    }
+
+    /**public Area getByToponimo(String Toponimo) throws SQLException {
+        refreshData();
+        for (Area area : aree) {
+            if (area.getToponimo().equals(Toponimo))
+                return area;
+        }
+        return null;
+    }*/
+
+
     public Set<Area> getAllByTerritorio(String ID_Territorio) {
         return null;
     }
 
-    @Override
+
     public Territorio getTerritorioByToponimo(String toponimo) {
         return null;
-    }
-
-    private boolean checkDB(String toponimo, String ID_TERRITORIO) throws SQLException {
-        String query = "SELECT ID_AREA, Toponimo, ID_TERRITORIO FROM area WHERE Toponimo =\"" + toponimo + "\" AND ID_TERRITORIO=\"" + ID_TERRITORIO + "\"";
-        System.out.println(DB_Controller.getNumberRows(query));
-        return DB_Controller.getNumberRows(query) == 0;
     }
 
 

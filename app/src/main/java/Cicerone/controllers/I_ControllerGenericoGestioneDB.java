@@ -1,5 +1,6 @@
 package Cicerone.controllers;
 
+import java.sql.SQLException;
 import java.util.Set;
 
 public interface I_ControllerGenericoGestioneDB<E> {
@@ -7,17 +8,17 @@ public interface I_ControllerGenericoGestioneDB<E> {
     /**
      * Operazione che permette l'inserimento dei dati all'interno di un DB
      *
-     * @param values parametri da inserire
+     * @param element parametri da inserire
      * @return <code>true</code> se l'operazione è andata a buon fine, <code>false</code> altrimenti
      */
-    boolean insertDB(String... values);
+    boolean insertDB(E element) throws SQLException;
 
     /**
      * Operazione che ci ritorna tutti i dati all'interno del DB
      *
      * @return tutti i dati di una determinata tabella del DB in un Set
      */
-    Set<E> getAllData();
+    Set<E> getAllData() throws SQLException;
 
     /**
      * Ritorna un determinato elemento di una tabella in base all'ID
@@ -25,19 +26,27 @@ public interface I_ControllerGenericoGestioneDB<E> {
      * @param id dell'elemento interessato
      * @return l'elemento interessato, altrimenti <code>null</code>
      */
-    E getById(String id);
+    E getById(String id) throws SQLException;
+
+    /**
+     *
+     * @param nome
+     * @return
+     * @throws SQLException
+     */
+    E getByName(String nome) throws SQLException;
 
     /**
      * Aggiorna i dati all'interno del
      */
-    void refreshData();
+    void refreshData() throws SQLException;
 
     /**
      * Controlla la presenza di un determinata istanza all'interno del DB
      *
-     * @param values parametri dell'istanza
+     * @param element parametri dell'istanza
      * @return <code>true</code> se l'istanza vi è stato trovata, <code>false</code> altrimenti
      */
-    boolean checkDB(String... values);
+    boolean checkDB(E element);
 
 }
