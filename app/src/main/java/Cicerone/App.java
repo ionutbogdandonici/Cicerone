@@ -12,7 +12,7 @@ public class App {
     public static void main(String[] args) throws SQLException {
         DB_Controller.init();
         ControllerGestisciArea con = new ControllerGestisciArea();
-        con.insertInDB("Porto Recanati", "Macerata");
+        con.insertInDB("Ancona", "Ancona");
         //con.insertInDB("Cingoli", "Macerata");
         //con.insertInDB("Tolentino", "Macerata");
         //con.insertInDB("Agosta", "Roma");*/
@@ -21,6 +21,7 @@ public class App {
         //System.out.println(con.toString());
         ControllerGestisciTappa controllerGestisciTappa = new ControllerGestisciTappa();
         controllerGestisciTappa.insertInDb("Porto", "Imbarco", "Bus", "Porto Recanati");
+        controllerGestisciTappa.insertInDb("Porto", "Imbarco", "Bus", "Ancona");
 
 
 

@@ -16,20 +16,14 @@ public class Tappa implements I_Tappa {
     /**
      * Costruttore di Tappa
      */
-    public Tappa(
-                  String ID_TAPPA,
-                  String nome,
-                  String descrizione,
-                  String raggiunta,
-                  String ID_AREA
-    ){
+    public Tappa(String ID_TAPPA, String nome, String descrizione, String raggiunta, String ID_AREA) {
         // Se uno o più parametri sono null
-        if ( ID_TAPPA == null || nome == null || descrizione == null || raggiunta == null || area == null)
+        if (nome == null || descrizione == null || raggiunta == null || area == null)
             throw new NullPointerException("Parametri null!");
-        this.nome=nome;
-        this.descrizione=descrizione;
-        this.raggiunta=raggiunta;
-        this.area=area;
+        this.nome = nome;
+        this.descrizione = descrizione;
+        this.raggiunta = raggiunta;
+        this.area = area;
 
     }
 
@@ -70,7 +64,7 @@ public class Tappa implements I_Tappa {
 
     @Override
     public void setRaggiunta(String raggiunta) {
-        if(raggiunta == null)
+        if (raggiunta == null)
             throw new NullPointerException("Parametro null!");
         this.raggiunta = raggiunta;
 
@@ -83,9 +77,9 @@ public class Tappa implements I_Tappa {
 
     @Override
     public void setArea(I_Area area) {
-        if(area == null)
+        if (area == null)
             throw new NullPointerException("Parametro null!");
-        this.area=area;
+        this.area = area;
 
     }
 

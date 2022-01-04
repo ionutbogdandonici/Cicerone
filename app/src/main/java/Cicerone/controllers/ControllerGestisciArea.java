@@ -70,7 +70,6 @@ public class ControllerGestisciArea implements I_ControllerGestisciArea {
     }
 
 
-
     @Override
     public String toString() {
         return "ControllerGestisciArea{" +

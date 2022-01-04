@@ -11,8 +11,6 @@ public class ControllerGestisciTerritorio implements I_ControllerGestisciTerrito
 
     private Set<Territorio> territori = new HashSet<>();
 
-
-
     @Override
     public boolean insertInDB(String nome, String regione) throws SQLException {
         if (checkDB(nome, regione)) {
@@ -38,7 +36,6 @@ public class ControllerGestisciTerritorio implements I_ControllerGestisciTerrito
         }
         return null;
     }
-
 
 
     @Override
