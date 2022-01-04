@@ -8,6 +8,7 @@ public class Tappa implements I_Tappa {
 
 
     private String nome;
+    private String ID_TAPPA;
     private String descrizione;
     private String raggiunta;
     private I_Area area;
@@ -20,6 +21,7 @@ public class Tappa implements I_Tappa {
         // Se uno o più parametri sono null
         if (nome == null || descrizione == null || raggiunta == null || area == null)
             throw new NullPointerException("Parametri null!");
+        this.ID_TAPPA = ID_TAPPA;
         this.nome = nome;
         this.descrizione = descrizione;
         this.raggiunta = raggiunta;
@@ -29,7 +31,7 @@ public class Tappa implements I_Tappa {
 
     @Override
     public String getId() {
-        return null;
+        return this.ID_TAPPA;
     }
 
     @Override

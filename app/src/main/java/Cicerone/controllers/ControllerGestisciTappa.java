@@ -1,5 +1,6 @@
 package Cicerone.controllers;
 
+import Cicerone.classes.Area;
 import Cicerone.classes.Tappa;
 import Cicerone.classes.Territorio;
 import Cicerone.db.DB_Controller;
@@ -12,7 +13,7 @@ import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ControllerGestisciTappa implements I_ControllerGestisciTappa {
+public class ControllerGestisciTappa implements I_ControllerGenericoGestioneDB<Tappa> {
 
     private Set<Tappa> tappe = new HashSet<>();
 
@@ -20,10 +21,10 @@ public class ControllerGestisciTappa implements I_ControllerGestisciTappa {
 
 
     @Override
-    public boolean insertInDb(String nome, String descrizione, String raggiunta, String toponimo) throws SQLException {
-        String ID_AREA = controllerGestisciArea.getByToponimo(toponimo).getID();
-        if (checkDB(nome, ID_AREA)) {
-            String query = "INSERT INTO tappa (Nome, Descrizione, Raggiunta, ID_AREA) VALUES (\'" + nome + "\', \'" + descrizione + "\',\'" + raggiunta + "\',\'" + ID_AREA + "\')";
+    public boolean insertDB(Tappa element) throws SQLException {
+        String ID_AREA = controllerGestisciArea.getByName(element.getNome()).getID();
+        if (checkDB(element)) {
+            String query = "INSERT INTO tappa (Nome, Descrizione, Raggiunta, ID_AREA) VALUES (\'" + element.getNome() + "\', \'" + element.getDescrizione() + "\',\'" + element.getRaggiunta() + "\',\'" + ID_AREA + "\')";
             DB_Controller.insertQuery(query);
             refreshData();
             return true;
@@ -31,34 +32,10 @@ public class ControllerGestisciTappa implements I_ControllerGestisciTappa {
         return false;
     }
 
-    @Override
-    public Tappa getTappaByName(String name) {
-        return null;
-    }
 
-    @Override
-    public Tappa getTappaById(int ID) {
-        return null;
-    }
-
-    @Override
     public Set<Tappa> getAllTappeByArea(I_Area area) {
         return null;
     }
-
-    @Override
-    public boolean removeTappaFromDB(String nome) throws SQLException {
-        Tappa toRemove = getTappaByName(nome);
-        if (!checkDB(toRemove.getNome(), toRemove.getArea().getID())) {
-            String query = "REMOVE FROM tappa WHERE Nome = \'" + nome + "\' AND ID_AREA=\'" +
-                    toRemove.getArea().getID() + "\'";
-            DB_Controller.removeQuery(query);
-            refreshData();
-            return true;
-        }
-        return false;
-    }
-
 
     @Override
     public String toString() {
@@ -67,7 +44,28 @@ public class ControllerGestisciTappa implements I_ControllerGestisciTappa {
                 '}';
     }
 
-    private void refreshData() throws SQLException {
+    @Override
+    public Set<Tappa> getAllData() throws SQLException {
+        return this.tappe;
+    }
+
+    @Override
+    public Tappa getById(String id) throws SQLException {
+        refreshData();
+        for (Tappa tappa : tappe) {
+            if (tappa.getId().equals(id))
+                return tappa;
+        }
+        return null;
+    }
+
+    @Override
+    public Tappa getByName(String nome) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public void refreshData() throws SQLException {
         ResultSet resultSet = DB_Controller.selectAllFromTable("tappa");
         while (resultSet.next()) {
             tappe.add(new Tappa(
@@ -79,8 +77,10 @@ public class ControllerGestisciTappa implements I_ControllerGestisciTappa {
         }
     }
 
-    public boolean checkDB(String nome, String ID_AREA) throws SQLException {
-        String query = "SELECT Nome, ID_AREA FROM tappa WHERE Nome=\"" + nome + "\" AND ID_AREA=\"" + ID_AREA + "\"";
+    @Override
+    public boolean checkDB(Tappa element) {
+        String query = "SELECT Nome, ID_AREA FROM tappa WHERE Nome=\"" + element.getNome() + "\" AND ID_AREA=\"" + element.getArea() + "\"";
         return DB_Controller.getNumberRows(query) == 0;
     }
+
 }

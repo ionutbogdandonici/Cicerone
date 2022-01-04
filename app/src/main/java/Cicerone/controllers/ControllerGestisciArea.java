@@ -14,18 +14,7 @@ public class ControllerGestisciArea implements I_ControllerGenericoGestioneDB<Ar
     private Territorio territorioArea;
     private Set<Area> aree = new HashSet<>();
     ControllerGestisciTerritorio controllerGestisciTerritorio = new ControllerGestisciTerritorio();
-
-    /**
-    public boolean insertInDB(String toponoimo, String NomeTerritorio) throws SQLException {
-        String ID_Territorio = controllerGestisciTerritorio.getByName(NomeTerritorio).getID();
-        //TODO CONTROLLO ERRORI
-        if (checkDB(toponoimo, ID_Territorio)) {
-            DB_Controller.insertQuery("INSERT INTO area (Toponimo, ID_TERRITORIO) VALUES ('" + toponoimo + "', '" + ID_Territorio + "')");
-            refreshData();
-            return true;
-        }
-        return false;
-    }*/
+    
 
     @Override
     public boolean insertDB(Area element) throws SQLException {
@@ -57,11 +46,6 @@ public class ControllerGestisciArea implements I_ControllerGenericoGestioneDB<Ar
         return DB_Controller.getNumberRows(query) == 0;
     }
 
-   /** private boolean checkDB(String toponimo, String ID_TERRITORIO) throws SQLException {
-        String query = "SELECT ID_AREA, Toponimo, ID_TERRITORIO FROM area WHERE Toponimo =\"" + toponimo + "\" AND ID_TERRITORIO=\"" + ID_TERRITORIO + "\"";
-        System.out.println(DB_Controller.getNumberRows(query));
-        return DB_Controller.getNumberRows(query) == 0;
-    }*/
 
     @Override
     public Set<Area> getAllData() throws SQLException {
@@ -87,15 +71,6 @@ public class ControllerGestisciArea implements I_ControllerGenericoGestioneDB<Ar
         }
         return null;
     }
-
-    /**public Area getByToponimo(String Toponimo) throws SQLException {
-        refreshData();
-        for (Area area : aree) {
-            if (area.getToponimo().equals(Toponimo))
-                return area;
-        }
-        return null;
-    }*/
 
 
     public Set<Area> getAllByTerritorio(String ID_Territorio) {
