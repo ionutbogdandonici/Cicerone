@@ -16,7 +16,7 @@ public class ControllerGestisciPercorso implements I_ControllerGenericoGestioneD
     public boolean insertDB(Percorso element) throws SQLException {
         if (element == null)
             throw new NullPointerException("Parametro null!");
-        if (!checkDB(element))
+        if (checkDB(element))
             return false;
         String query = "INSERT INTO percorso (Nome, Descrizione) VALUES('" + element.getName() + "','" + element.getDescrizione() + "')";
         DB_Controller.insertQuery(query);
@@ -54,6 +54,7 @@ public class ControllerGestisciPercorso implements I_ControllerGenericoGestioneD
         ResultSet resultSet = DB_Controller.selectAllFromTable("percorso");
         while (resultSet.next()) {
             percorsi.add(new Percorso(
+                    resultSet.getString("ID_PERCORSO"),
                     resultSet.getString("Nome"),
                     resultSet.getString("Descrizione")));
         }
