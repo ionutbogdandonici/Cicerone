@@ -18,7 +18,6 @@ public class ControllerGestisciPercorso implements I_ControllerGenericoGestioneD
             throw new NullPointerException("Parametro null!");
         if (!checkDB(element))
             return false;
-
         String query = "INSERT INTO percorso (Nome, Descrizione) VALUES('" + element.getName() + "','" + element.getDescrizione() + "')";
         DB_Controller.insertQuery(query);
         refreshData();
@@ -52,12 +51,11 @@ public class ControllerGestisciPercorso implements I_ControllerGenericoGestioneD
 
     @Override
     public void refreshData() throws SQLException {
-        ResultSet resultSet = DB_Controller.selectAllFromTable("area");
+        ResultSet resultSet = DB_Controller.selectAllFromTable("percorso");
         while (resultSet.next()) {
             percorsi.add(new Percorso(
-                    resultSet.getString("ID_PERCORSO"),
                     resultSet.getString("Nome"),
-                    resultSet.getString("Descrizone")));
+                    resultSet.getString("Descrizione")));
         }
     }
 

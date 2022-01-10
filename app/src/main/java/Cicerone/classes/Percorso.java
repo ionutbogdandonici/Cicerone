@@ -29,7 +29,7 @@ public class Percorso implements I_Percorso {
     }
 
     public Percorso(String ID_Percorso, String nome, String descrizione, I_Territorio territorio, ArrayList<I_Tappa> tappe, ArrayList<I_Area> aree) {
-        if (nome == null || descrizione == null || territorio == null) {
+        if(nome == null || descrizione == null || territorio == null) {
             throw new NullPointerException("Inserisci tutti i parametri");
         }
         this.ID_Percorso = ID_Percorso;
