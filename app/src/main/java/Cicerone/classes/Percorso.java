@@ -4,20 +4,32 @@ import Cicerone.interfaces.I_Area;
 import Cicerone.interfaces.I_Percorso;
 import Cicerone.interfaces.I_Tappa;
 import Cicerone.interfaces.I_Territorio;
+import org.junit.jupiter.params.shadow.com.univocity.parsers.common.ProcessorErrorHandler;
 
 import java.util.ArrayList;
 
 public class Percorso implements I_Percorso {
 
-    private final String ID_Percorso;
+    private String ID_Percorso;
     private String Nome;
     private String Descrizione;
     private I_Territorio territorio;
     private ArrayList<I_Tappa> tappe;
     private ArrayList<I_Area> aree;
 
+    public Percorso(String nome, String descrizione) {
+        this.Nome = nome;
+        this.Descrizione = descrizione;
+    }
+
+    public Percorso(String ID_Percorso, String nome, String descrizione) {
+        this.ID_Percorso = ID_Percorso;
+        this.Nome = nome;
+        this.Descrizione = descrizione;
+    }
+
     public Percorso(String ID_Percorso, String nome, String descrizione, I_Territorio territorio, ArrayList<I_Tappa> tappe, ArrayList<I_Area> aree) {
-        if(nome==null ||  descrizione == null || territorio == null){
+        if (nome == null || descrizione == null || territorio == null) {
             throw new NullPointerException("Inserisci tutti i parametri");
         }
         this.ID_Percorso = ID_Percorso;
@@ -40,7 +52,7 @@ public class Percorso implements I_Percorso {
 
     @Override
     public void addTappa(I_Tappa tappa) {
-        if(tappa == null)
+        if (tappa == null)
             throw new NullPointerException("Parametro nullo");
         tappe.add(tappa);
 
@@ -53,7 +65,7 @@ public class Percorso implements I_Percorso {
 
     @Override
     public void addArea(I_Area area) {
-        if(area == null)
+        if (area == null)
             throw new NullPointerException("Parametro nullo");
         aree.add(area);
     }
@@ -65,7 +77,7 @@ public class Percorso implements I_Percorso {
 
     @Override
     public void setNome(String nome) {
-        if(nome == null)
+        if (nome == null)
             throw new NullPointerException("Parametro nullo");
         this.Nome = nome;
     }
@@ -77,7 +89,7 @@ public class Percorso implements I_Percorso {
 
     @Override
     public void setDescrizione(String descrizione) {
-        if(descrizione == null)
+        if (descrizione == null)
             throw new NullPointerException("Parametro nullo");
         this.Descrizione = descrizione;
     }
@@ -89,7 +101,7 @@ public class Percorso implements I_Percorso {
 
     @Override
     public void setTerritorio(I_Territorio territorio) {
-        if(territorio == null)
+        if (territorio == null)
             throw new NullPointerException("Parametro nullo");
         this.territorio = territorio;
     }
