@@ -14,6 +14,11 @@ public class Area implements I_Area {
         this.ID_Territorio = ID_Territorio;
     }
 
+    public Area(String toponimo, String ID_Territorio) {
+        this.Toponimo = toponimo;
+        this.ID_Territorio = ID_Territorio;
+    }
+
     @Override
     public String getID() {
         return this.ID_Area;

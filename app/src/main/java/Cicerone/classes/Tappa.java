@@ -25,7 +25,16 @@ public class Tappa implements I_Tappa {
         this.descrizione = descrizione;
         this.raggiunta = raggiunta;
         this.area = area;
+    }
 
+    public Tappa(String nome, String descrizione, String raggiunta, String ID_AREA) {
+        // Se uno o più parametri sono null
+        if (nome == null || descrizione == null || raggiunta == null || area == null)
+            throw new NullPointerException("Parametri null!");
+        this.nome = nome;
+        this.descrizione = descrizione;
+        this.raggiunta = raggiunta;
+        this.area = area;
     }
 
     @Override
