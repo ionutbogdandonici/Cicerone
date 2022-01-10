@@ -6,13 +6,20 @@ import java.util.Objects;
 
 public class Territorio implements I_Territorio {
 
-    private final String ID;
+    private  String ID;
     private final String nome;
     private final String id_Regione;
 
     public Territorio(String ID, String nome, String id_Regione) {
         // TODO gestione degli errori
         this.ID = ID;
+        this.nome = nome;
+        this.id_Regione = id_Regione;
+    }
+
+    public Territorio(String nome, String id_Regione) {
+        // TODO gestione degli errori
+
         this.nome = nome;
         this.id_Regione = id_Regione;
     }

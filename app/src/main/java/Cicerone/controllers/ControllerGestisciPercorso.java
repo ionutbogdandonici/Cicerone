@@ -54,6 +54,7 @@ public class ControllerGestisciPercorso implements I_ControllerGenericoGestioneD
         ResultSet resultSet = DB_Controller.selectAllFromTable("percorso");
         while (resultSet.next()) {
             percorsi.add(new Percorso(
+                    resultSet.getString("ID_PERCORSO"),
                     resultSet.getString("Nome"),
                     resultSet.getString("Descrizione")));
         }
@@ -61,7 +62,7 @@ public class ControllerGestisciPercorso implements I_ControllerGenericoGestioneD
 
     @Override
     public boolean checkDB(Percorso element) {
-        String query = "SELECT ID_PERCORSO, Nome, Descrizione FROM percorso WHERE ID_Percorso =\"" + element.getId() + "\" AND Nome=\"" + element.getName() + "\"";
+        String query = "SELECT Nome, Descrizione FROM percorso WHERE Nome =\"" + element.getName() + "\" AND Descrizione=\"" + element.getDescrizione() + "\"";
         System.out.println(DB_Controller.getNumberRows(query));
         return DB_Controller.getNumberRows(query) == 0;
     }

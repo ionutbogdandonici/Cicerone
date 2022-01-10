@@ -1,6 +1,7 @@
 package Cicerone;
 
 import Cicerone.classes.Percorso;
+import Cicerone.classes.Territorio;
 import Cicerone.controllers.ControllerGestisciArea;
 import Cicerone.controllers.ControllerGestisciPercorso;
 import Cicerone.controllers.ControllerGestisciTappa;
@@ -14,7 +15,10 @@ public class App {
     public static void main(String[] args) throws SQLException {
         DB_Controller.init();
         ControllerGestisciPercorso con = new ControllerGestisciPercorso();
-        // con.insertInDB("Ancona", "Ancona");
+        ControllerGestisciTerritorio con1 = new ControllerGestisciTerritorio();
+        Territorio v = new Territorio("Ancona", "Marche");
+        con1.insertDB(v);
+         //con.insertInDB("Ancona", "Ancona");
         // con.insertInDB("Cingoli", "Macerata");
         // con.insertInDB("Tolentino", "Macerata");
         // con.insertInDB("Agosta", "Roma");*/
@@ -26,6 +30,10 @@ public class App {
         // controllerGestisciTappa.insertInDb("Porto", "Imbarco", "Bus", "Ancona");
         Percorso a = new Percorso("daje","daje de tacco");
         con.insertDB(a);
+
+        Percorso daInserire = new Percorso("134", "Giovedi sera serata!");
+        ControllerGestisciPercorso controllerGestisciPercorso = new ControllerGestisciPercorso();
+        controllerGestisciPercorso.insertDB(daInserire);
 
 
     }
