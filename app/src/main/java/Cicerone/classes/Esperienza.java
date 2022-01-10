@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Esperienza implements I_Esperienza {
 
-    private String ID;
+    private final String ID;
     private LocalDate dataEsperienza;
     private String nome;
     private String descrizione;
@@ -23,7 +23,22 @@ public class Esperienza implements I_Esperienza {
     private LocalDate scadenzaPrenotazioni;
     private int giorniRiservatezzaPosti;
 
-    public Esperienza(String ID,
+
+    public Esperienza(String id_esperienza, LocalDate dataEsperienza, String nome, String descrizione, float costo, int postiMax, int postiMin, int postiRiservati, int postiInSospeso, int giorniRiservatezzaPosti) {
+        this.ID = id_esperienza;
+        this.dataEsperienza = dataEsperienza;
+        this.nome = nome;
+        this.descrizione = descrizione;
+        this.tags = new ArrayList<>();
+        this.costo = costo;
+        this.postiMax = postiMax;
+        this.postiMin = postiMin;
+        this.postiRiservati = postiRiservati;
+        this.postiInSospeso = postiInSospeso;
+        this.giorniRiservatezzaPosti = giorniRiservatezzaPosti;
+    }
+
+    /*public Esperienza(String ID,
                       LocalDate dataEsperienza,
                       String nome,
                       String descrizione,
@@ -64,47 +79,7 @@ public class Esperienza implements I_Esperienza {
         this.postiInSospeso = 0;
         this.scadenzaPrenotazioni = scadenzaPrenotazioni;
         this.giorniRiservatezzaPosti = giorniRiservatezzaPosti;
-    }
-    public Esperienza(String ID,
-                      LocalDate dataEsperienza,
-                      String nome,
-                      String descrizione,
-                      float costo,
-                      int postiMax,
-                      int postiMin,
-                      LocalDate scadenzaPrenotazioni,
-                      int giorniRiservatezzaPosti
-    ) {
-        // Gestione delle possibili eccezioni --- INIZIO
-        // Se uno o più parametri sono null
-        if (dataEsperienza == null || nome == null || descrizione == null || scadenzaPrenotazioni == null)
-            throw new NullPointerException("Parametri null!");
-        // Se la data inserita è antecedente al giorno d'oggi od è il giorno stesso
-        if (dataEsperienza.isBefore(LocalDate.now()) || dataEsperienza.isEqual(LocalDate.now()))
-            throw new IllegalArgumentException("L'esperienza non può essere fissata oggi od in una data passata!");
-        if (scadenzaPrenotazioni.isBefore(LocalDate.now()) || scadenzaPrenotazioni.isEqual(LocalDate.now()))
-            throw new IllegalArgumentException("L'esperienza non può essere fissata oggi od in una data passata!");
-        // Se il costo, postiMin, postiMax è inferiore a 0
-        if (costo < 0 || postiMin < 0 || postiMax < 0)
-            throw new IllegalArgumentException("Parametri inferiori a 0");
-        // Sei giorni di riservatezza sono minori o uguali a 2
-        if (giorniRiservatezzaPosti < 2)
-            throw new IllegalArgumentException("Giorni riservatezza inferiori a due");
-
-        // Gestione delle possibili eccezioni --- FINE
-        this.ID = ID;
-        this.dataEsperienza = dataEsperienza;
-        this.nome = nome;
-        this.descrizione = descrizione;
-        this.tags = new ArrayList<>();
-        this.costo = costo;
-        this.postiMax = postiMax;
-        this.postiMin = postiMin;
-        this.postiRiservati = 0;
-        this.postiInSospeso = 0;
-        this.scadenzaPrenotazioni = scadenzaPrenotazioni;
-        this.giorniRiservatezzaPosti = giorniRiservatezzaPosti;
-    }
+    }*/
 
     @Override
     public LocalDate getDataEsperienza() {
