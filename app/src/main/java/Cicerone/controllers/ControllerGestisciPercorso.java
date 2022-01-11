@@ -1,7 +1,10 @@
 package Cicerone.controllers;
 
 import Cicerone.classes.Percorso;
+import Cicerone.classes.Tappa;
 import Cicerone.db.DB_Controller;
+import Cicerone.interfaces.I_Tappa;
+import org.checkerframework.checker.units.qual.A;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,12 +21,32 @@ public class ControllerGestisciPercorso implements I_ControllerGenericoGestioneD
             throw new NullPointerException("Parametro null!");
         if (!checkDB(element))
             return false;
+        if (element.getTappe() == null) {
+            insertPercorsoBase(element);
+        } else {
+            insertPercorsoCompleto(element);
+        }
 
+        return true;
+    }
+
+    private void insertPercorsoBase(Percorso element) throws SQLException {
         String query = "INSERT INTO percorso (Nome, Descrizione) VALUES('" + element.getName() + "','" + element.getDescrizione() + "')";
-        // TODO -> ASSOCIARE IL PERCORSO AD UNA TAPPA
         DB_Controller.insertQuery(query);
         refreshData();
-        return true;
+    }
+
+    private void insertPercorsoCompleto(Percorso element) throws SQLException {
+        // Inserimento tabella 'percorso'
+        String query = "INSERT INTO percorso (Nome, Descrizione) VALUES('" + element.getName() + "','" + element.getDescrizione() + "')";
+        // Inserimento tabella 'percorso_tappa' - 'tappa'
+        ControllerGestisciTappa controllerTappa = new ControllerGestisciTappa();
+        for (Tappa tappa : element.getTappe()) {
+            controllerTappa.insertDB(tappa);
+            String queryPT = "INSERT INTO percorso_tappa (ID_PERCORSO, ID_TAPPA) " +
+                    "VALUES ('" + element.getId() + "','" + tappa.getId() + "')";
+            DB_Controller.insertQuery(queryPT);
+        }
     }
 
     @Override

@@ -16,7 +16,7 @@ public class Tappa implements I_Tappa {
     /**
      * Costruttore di Tappa
      */
-    public Tappa(String ID_TAPPA, String nome, String descrizione, String raggiunta, String ID_AREA) {
+    public Tappa(String ID_TAPPA, String nome, String descrizione, String raggiunta, Area area) {
         // Se uno o più parametri sono null
         if (nome == null || descrizione == null || raggiunta == null || area == null)
             throw new NullPointerException("Parametri null!");
@@ -27,7 +27,7 @@ public class Tappa implements I_Tappa {
         this.area = area;
     }
 
-    public Tappa(String nome, String descrizione, String raggiunta, String ID_AREA) {
+    public Tappa(String nome, String descrizione, String raggiunta, Area area) {
         // Se uno o più parametri sono null
         if (nome == null || descrizione == null || raggiunta == null || area == null)
             throw new NullPointerException("Parametri null!");

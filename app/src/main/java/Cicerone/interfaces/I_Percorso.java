@@ -1,5 +1,9 @@
 package Cicerone.interfaces;
 
+import Cicerone.classes.Area;
+import Cicerone.classes.Tappa;
+import Cicerone.classes.Territorio;
+
 import java.util.ArrayList;
 
 /**
@@ -17,25 +21,25 @@ public interface I_Percorso{
      * Restituisce tutte le tappe attraversate dal percorso
      * @return
      */
-    ArrayList<I_Tappa> getTappe();
+    ArrayList<Tappa> getTappe();
 
     /**
      * Inserisce una nuova tappa nella lista delle tappe
      * @param tappa
      */
-    void addTappa(I_Tappa tappa);
+    void addTappa(Tappa tappa);
 
     /**
      * Restotuisce tutte le aree attraverste dal percorso
      * @return ArrayList di aree
      */
-    ArrayList<I_Area> getArea();
+    ArrayList<Area> getAree();
 
     /**
      * Inserisce una nuva area all'interno della lista aree
      * @param area
      */
-    void addArea(I_Area area);
+    void addArea(Area area);
 
     /**
      * Ritorna il nome del percorso
@@ -66,13 +70,13 @@ public interface I_Percorso{
      * Ritorna il territorio dove il percorso passa
      * @return territorio
      */
-    I_Territorio getTerritorio();
+    Territorio getTerritorio();
 
     /**
      * Permette di inserire un territorio
      * @param territorio
      */
-    void setTerritorio(I_Territorio territorio);
+    void setTerritorio(Territorio territorio);
 
 
 }

@@ -2,11 +2,8 @@ package Cicerone.controllers;
 
 import Cicerone.classes.Area;
 import Cicerone.classes.Tappa;
-import Cicerone.classes.Territorio;
 import Cicerone.db.DB_Controller;
 import Cicerone.interfaces.I_Area;
-import Cicerone.interfaces.I_Tappa;
-import Cicerone.interfaces.I_Territorio;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -68,12 +65,14 @@ public class ControllerGestisciTappa implements I_ControllerGenericoGestioneDB<T
     public void refreshData() throws SQLException {
         ResultSet resultSet = DB_Controller.selectAllFromTable("tappa");
         while (resultSet.next()) {
+            ControllerGestisciArea con = new ControllerGestisciArea();
+            Area daAggiungere = con.getById(resultSet.getString("ID_AREA"));
             tappe.add(new Tappa(
                     resultSet.getString("ID_TAPPA"),
                     resultSet.getString("Nome"),
                     resultSet.getString("Descrizione"),
                     resultSet.getString("Raggiunta"),
-                    resultSet.getString("ID_AREA")));
+                    daAggiungere));
         }
     }
 

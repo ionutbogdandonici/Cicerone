@@ -13,9 +13,9 @@ public class Percorso implements I_Percorso {
     private String ID_Percorso;
     private String Nome;
     private String Descrizione;
-    private I_Territorio territorio;
-    private ArrayList<I_Tappa> tappe;
-    private ArrayList<I_Area> aree;
+    private Territorio territorio;
+    private ArrayList<Tappa> tappe = new ArrayList<>();
+    private ArrayList<Area> aree;
 
     // Costruttore utile per la creazione di un percorso
     public Percorso(String nome, String descrizione) {
@@ -31,7 +31,7 @@ public class Percorso implements I_Percorso {
     }
 
     // Costruttore utile per l'assegnazione delle tappe ed aree
-    public Percorso(String ID_Percorso, String nome, String descrizione, I_Territorio territorio, ArrayList<I_Tappa> tappe, ArrayList<I_Area> aree) {
+    public Percorso(String ID_Percorso, String nome, String descrizione, Territorio territorio, ArrayList<Tappa> tappe, ArrayList<Area> aree) {
         if (nome == null || descrizione == null || territorio == null) {
             throw new NullPointerException("Inserisci tutti i parametri");
         }
@@ -49,25 +49,24 @@ public class Percorso implements I_Percorso {
     }
 
     @Override
-    public ArrayList<I_Tappa> getTappe() {
+    public ArrayList<Tappa> getTappe() {
         return this.tappe;
     }
 
     @Override
-    public void addTappa(I_Tappa tappa) {
+    public void addTappa(Tappa tappa) {
         if (tappa == null)
             throw new NullPointerException("Parametro nullo");
         tappe.add(tappa);
-
     }
 
     @Override
-    public ArrayList<I_Area> getArea() {
+    public ArrayList<Area> getAree() {
         return this.aree;
     }
 
     @Override
-    public void addArea(I_Area area) {
+    public void addArea(Area area) {
         if (area == null)
             throw new NullPointerException("Parametro nullo");
         aree.add(area);
@@ -98,12 +97,12 @@ public class Percorso implements I_Percorso {
     }
 
     @Override
-    public I_Territorio getTerritorio() {
+    public Territorio getTerritorio() {
         return this.territorio;
     }
 
     @Override
-    public void setTerritorio(I_Territorio territorio) {
+    public void setTerritorio(Territorio territorio) {
         if (territorio == null)
             throw new NullPointerException("Parametro nullo");
         this.territorio = territorio;
