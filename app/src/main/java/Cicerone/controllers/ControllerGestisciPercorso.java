@@ -40,11 +40,15 @@ public class ControllerGestisciPercorso implements I_ControllerGenericoGestioneD
         // Inserimento tabella 'percorso'
         String query = "INSERT INTO percorso (Nome, Descrizione) VALUES('" + element.getName() + "','" + element.getDescrizione() + "')";
         // Inserimento tabella 'percorso_tappa' - 'tappa'
+        Percorso conID = getByName(element.getName());
         ControllerGestisciTappa controllerTappa = new ControllerGestisciTappa();
         for (Tappa tappa : element.getTappe()) {
             controllerTappa.insertDB(tappa);
+            System.out.println("ID Percorso: " + conID.getId());
+            System.out.println("ID Tappa: " + tappa.getId());
+
             String queryPT = "INSERT INTO percorso_tappa (ID_PERCORSO, ID_TAPPA) " +
-                    "VALUES ('" + element.getId() + "','" + tappa.getId() + "')";
+                    "VALUES ('" + conID.getId() + "','" + tappa.getId() + "')";
             DB_Controller.insertQuery(queryPT);
         }
     }

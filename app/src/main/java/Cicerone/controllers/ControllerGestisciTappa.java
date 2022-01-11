@@ -19,7 +19,7 @@ public class ControllerGestisciTappa implements I_ControllerGenericoGestioneDB<T
 
     @Override
     public boolean insertDB(Tappa element) throws SQLException {
-        String ID_AREA = controllerGestisciArea.getByName(element.getNome()).getID();
+        String ID_AREA = element.getArea().getID();
         if (checkDB(element)) {
             String query = "INSERT INTO tappa (Nome, Descrizione, Raggiunta, ID_AREA) VALUES (\'" + element.getNome() + "\', \'" + element.getDescrizione() + "\',\'" + element.getRaggiunta() + "\',\'" + ID_AREA + "\')";
             DB_Controller.insertQuery(query);

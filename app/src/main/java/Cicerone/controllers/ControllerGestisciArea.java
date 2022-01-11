@@ -12,7 +12,7 @@ import java.util.Set;
 public class ControllerGestisciArea implements I_ControllerGenericoGestioneDB<Area> {
 
     private Territorio territorioArea;
-    private Set<Area> aree = new HashSet<>();
+    private final Set<Area> aree = new HashSet<>();
     ControllerGestisciTerritorio controllerGestisciTerritorio = new ControllerGestisciTerritorio();
     
 
