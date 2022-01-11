@@ -105,4 +105,9 @@ public class Percorso implements I_Percorso {
             throw new NullPointerException("Parametro nullo");
         this.territorio = territorio;
     }
+
+    @Override
+    public String toString(){
+        return this.getName()+" - "+this.getDescrizione();
+    }
 }

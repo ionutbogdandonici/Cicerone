@@ -2,23 +2,34 @@ package Tests.controllers;
 
 import Cicerone.classes.Percorso;
 import Cicerone.controllers.ControllerGestisciPercorso;
+import Cicerone.db.DB_Controller;
+
 import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
-
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.HashSet;
+import java.util.Set;
 
 class ControllerGestisciPercorsoTest {
 
     @Test
     void insertDB() throws SQLException {
+        DB_Controller.init();
         Percorso daInserire = new Percorso("134", "Giovedi sera serata!");
+        Percorso daInserire1 = new Percorso("134", "Giovedi sera serata!");
         ControllerGestisciPercorso controllerGestisciPercorso = new ControllerGestisciPercorso();
         controllerGestisciPercorso.insertDB(daInserire);
+        controllerGestisciPercorso.insertDB(daInserire1);
     }
 
     @Test
     void getAllData() {
+        DB_Controller.init();
+        ControllerGestisciPercorso controllerGestisciPercorso = new ControllerGestisciPercorso();
+        Set<Percorso> toCheck = controllerGestisciPercorso.getAllData();
+        for (Percorso percorso : toCheck) {
+            System.out.println(percorso);
+        }
     }
 
     @Test

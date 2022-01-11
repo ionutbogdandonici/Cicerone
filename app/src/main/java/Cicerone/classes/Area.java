@@ -5,8 +5,8 @@ import Cicerone.interfaces.I_Area;
 public class Area implements I_Area {
 
     private String ID_Area;
-    private String Toponimo;
-    private String ID_Territorio;
+    private final String Toponimo;
+    private final String ID_Territorio;
 
     public Area(String ID_Area, String toponimo, String ID_Territorio) {
         this.ID_Area = ID_Area;
