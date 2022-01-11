@@ -213,10 +213,8 @@ public class Esperienza implements I_Esperienza {
     }
 
     @Override
-    public void setScadenzaPrenotazioni(LocalDate scadenzaPrenotazioni) {
-        if (scadenzaPrenotazioni.isBefore(LocalDate.now()) || scadenzaPrenotazioni.isEqual(LocalDate.now()))
-            throw new IllegalArgumentException("L'esperienza non può essere fissata oggi od in una data passata!");
-        this.scadenzaPrenotazioni = scadenzaPrenotazioni;
+    public void setScadenzaPrenotazioni() {
+        this.scadenzaPrenotazioni = dataEsperienza.minusDays(4);
     }
 
     @Override

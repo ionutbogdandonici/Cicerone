@@ -17,19 +17,22 @@ public class Percorso implements I_Percorso {
     private ArrayList<I_Tappa> tappe;
     private ArrayList<I_Area> aree;
 
+    // Costruttore utile per la creazione di un percorso
     public Percorso(String nome, String descrizione) {
         this.Nome = nome;
         this.Descrizione = descrizione;
     }
 
+    // Costruttore per l'istanziamento dei campi del DB
     public Percorso(String ID_Percorso, String nome, String descrizione) {
         this.ID_Percorso = ID_Percorso;
         this.Nome = nome;
         this.Descrizione = descrizione;
     }
 
+    // Costruttore utile per l'assegnazione delle tappe ed aree
     public Percorso(String ID_Percorso, String nome, String descrizione, I_Territorio territorio, ArrayList<I_Tappa> tappe, ArrayList<I_Area> aree) {
-        if(nome == null || descrizione == null || territorio == null) {
+        if (nome == null || descrizione == null || territorio == null) {
             throw new NullPointerException("Inserisci tutti i parametri");
         }
         this.ID_Percorso = ID_Percorso;
@@ -107,7 +110,7 @@ public class Percorso implements I_Percorso {
     }
 
     @Override
-    public String toString(){
-        return this.getName()+" - "+this.getDescrizione();
+    public String toString() {
+        return this.getName() + " - " + this.getDescrizione();
     }
 }

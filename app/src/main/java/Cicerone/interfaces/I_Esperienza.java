@@ -166,9 +166,8 @@ public interface I_Esperienza {
     /**
      * Imposto o aggiorna la data di scadenza delle prenotazioni
      *
-     * @param scadenzaPrenotazioni nuova data di scadenza
      */
-    void setScadenzaPrenotazioni(LocalDate scadenzaPrenotazioni);
+    void setScadenzaPrenotazioni();
 
     /**
      * Ritorna il numero di giorni a disposizione dell'invitante ad accettare l'invito

@@ -18,14 +18,17 @@ public class ControllerGestisciPercorso implements I_ControllerGenericoGestioneD
             throw new NullPointerException("Parametro null!");
         if (!checkDB(element))
             return false;
+
         String query = "INSERT INTO percorso (Nome, Descrizione) VALUES('" + element.getName() + "','" + element.getDescrizione() + "')";
+        // TODO -> ASSOCIARE IL PERCORSO AD UNA TAPPA
         DB_Controller.insertQuery(query);
         refreshData();
         return true;
     }
 
     @Override
-    public Set<Percorso> getAllData() {
+    public Set<Percorso> getAllData() throws SQLException {
+        refreshData();
         return this.percorsi;
     }
 

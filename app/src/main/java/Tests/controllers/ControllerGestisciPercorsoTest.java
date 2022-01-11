@@ -7,7 +7,6 @@ import Cicerone.db.DB_Controller;
 import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
-import java.util.HashSet;
 import java.util.Set;
 
 class ControllerGestisciPercorsoTest {
@@ -23,13 +22,16 @@ class ControllerGestisciPercorsoTest {
     }
 
     @Test
-    void getAllData() {
+    void getAllData() throws SQLException {
         DB_Controller.init();
         ControllerGestisciPercorso controllerGestisciPercorso = new ControllerGestisciPercorso();
         Set<Percorso> toCheck = controllerGestisciPercorso.getAllData();
+
         for (Percorso percorso : toCheck) {
             System.out.println(percorso);
         }
+
+        System.out.println(toCheck);
     }
 
     @Test
