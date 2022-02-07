@@ -1,8 +1,8 @@
 package Cicerone.controllers;
 
 import Cicerone.classes.Esperienza;
-import Cicerone.classes.Percorso;
 import Cicerone.db.DB_Controller;
+import Cicerone.interfaces.I_ControllerGenericoGestioneDB;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

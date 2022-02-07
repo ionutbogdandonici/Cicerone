@@ -1,4 +1,4 @@
-package Cicerone.controllers;
+package Cicerone.interfaces;
 
 import java.sql.SQLException;
 import java.util.Set;

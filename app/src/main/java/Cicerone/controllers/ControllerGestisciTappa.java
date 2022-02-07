@@ -4,6 +4,7 @@ import Cicerone.classes.Area;
 import Cicerone.classes.Tappa;
 import Cicerone.db.DB_Controller;
 import Cicerone.interfaces.I_Area;
+import Cicerone.interfaces.I_ControllerGenericoGestioneDB;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -3,8 +3,7 @@ package Cicerone.controllers;
 import Cicerone.classes.Percorso;
 import Cicerone.classes.Tappa;
 import Cicerone.db.DB_Controller;
-import Cicerone.interfaces.I_Tappa;
-import org.checkerframework.checker.units.qual.A;
+import Cicerone.interfaces.I_ControllerGenericoGestioneDB;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
